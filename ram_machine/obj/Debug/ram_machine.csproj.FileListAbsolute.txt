@@ -1,0 +1,8 @@
+c:\users\izabela\documents\visual studio 2013\Projects\ram_machine\ram_machine\bin\Debug\ram_machine.exe.config
+c:\users\izabela\documents\visual studio 2013\Projects\ram_machine\ram_machine\obj\Debug\ram_machine.csprojResolveAssemblyReference.cache
+c:\users\izabela\documents\visual studio 2013\Projects\ram_machine\ram_machine\obj\Debug\ram_machine.Properties.Resources.resources
+c:\users\izabela\documents\visual studio 2013\Projects\ram_machine\ram_machine\obj\Debug\ram_machine.csproj.GenerateResource.Cache
+c:\users\izabela\documents\visual studio 2013\Projects\ram_machine\ram_machine\bin\Debug\ram_machine.exe
+c:\users\izabela\documents\visual studio 2013\Projects\ram_machine\ram_machine\bin\Debug\ram_machine.pdb
+c:\users\izabela\documents\visual studio 2013\Projects\ram_machine\ram_machine\obj\Debug\ram_machine.exe
+c:\users\izabela\documents\visual studio 2013\Projects\ram_machine\ram_machine\obj\Debug\ram_machine.pdb
