@@ -86,7 +86,6 @@ namespace RMS
             this.splitContainer1.Panel2.Controls.Add(this.btnRunToEnd);
             this.splitContainer1.Panel2.Controls.Add(this.btnRunStep);
             this.splitContainer1.Panel2.Controls.Add(this.lbOutput);
-            this.splitContainer1.Panel2MinSize = 438;
             this.splitContainer1.Size = new System.Drawing.Size(967, 522);
             this.splitContainer1.SplitterDistance = 525;
             this.splitContainer1.TabIndex = 0;
