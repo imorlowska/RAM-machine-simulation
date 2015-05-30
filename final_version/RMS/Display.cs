@@ -140,12 +140,28 @@ namespace RMS
 
         private void btnRunToEnd_Click(object sender, EventArgs e)
         {
-            while (MakeOneStep()) { }
+            try
+            {
+                while (MakeOneStep()) { }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void btnRunStep_Click(object sender, EventArgs e)
         {
-            MakeOneStep();
+            try
+            {
+                MakeOneStep();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private bool MakeOneStep()
@@ -161,6 +177,11 @@ namespace RMS
                 }
             }
             return result;
+        }
+
+        private void btnLoadSample_Click(object sender, EventArgs e)
+        {
+            _currentMachine = Machine.GetSampleMachine();
         }
     }
 }

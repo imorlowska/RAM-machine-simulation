@@ -32,6 +32,8 @@ namespace RMS
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.txtSize = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,8 +51,7 @@ namespace RMS
             this.btnRunToEnd = new System.Windows.Forms.Button();
             this.btnRunStep = new System.Windows.Forms.Button();
             this.lbOutput = new System.Windows.Forms.ListBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtSize = new System.Windows.Forms.TextBox();
+            this.btnLoadSample = new System.Windows.Forms.Button();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -82,6 +83,7 @@ namespace RMS
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.btnLoadSample);
             this.splitContainer1.Panel2.Controls.Add(this.btnClear);
             this.splitContainer1.Panel2.Controls.Add(this.btnRunToEnd);
             this.splitContainer1.Panel2.Controls.Add(this.btnRunStep);
@@ -89,6 +91,22 @@ namespace RMS
             this.splitContainer1.Size = new System.Drawing.Size(967, 522);
             this.splitContainer1.SplitterDistance = 525;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // txtSize
+            // 
+            this.txtSize.Location = new System.Drawing.Point(457, 461);
+            this.txtSize.Name = "txtSize";
+            this.txtSize.Size = new System.Drawing.Size(56, 20);
+            this.txtSize.TabIndex = 15;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(376, 464);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Rozmiar taśmy:";
             // 
             // label3
             // 
@@ -223,9 +241,9 @@ namespace RMS
             // btnClear
             // 
             this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClear.Location = new System.Drawing.Point(291, 487);
+            this.btnClear.Location = new System.Drawing.Point(314, 490);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(135, 23);
+            this.btnClear.Size = new System.Drawing.Size(112, 23);
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "Wyczyść";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -234,9 +252,9 @@ namespace RMS
             // btnRunToEnd
             // 
             this.btnRunToEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRunToEnd.Location = new System.Drawing.Point(150, 487);
+            this.btnRunToEnd.Location = new System.Drawing.Point(196, 490);
             this.btnRunToEnd.Name = "btnRunToEnd";
-            this.btnRunToEnd.Size = new System.Drawing.Size(135, 23);
+            this.btnRunToEnd.Size = new System.Drawing.Size(112, 23);
             this.btnRunToEnd.TabIndex = 2;
             this.btnRunToEnd.Text = "Uruchom pozostałe";
             this.btnRunToEnd.UseVisualStyleBackColor = true;
@@ -245,9 +263,9 @@ namespace RMS
             // btnRunStep
             // 
             this.btnRunStep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRunStep.Location = new System.Drawing.Point(9, 487);
+            this.btnRunStep.Location = new System.Drawing.Point(78, 490);
             this.btnRunStep.Name = "btnRunStep";
-            this.btnRunStep.Size = new System.Drawing.Size(135, 23);
+            this.btnRunStep.Size = new System.Drawing.Size(112, 23);
             this.btnRunStep.TabIndex = 1;
             this.btnRunStep.Text = "Następny krok";
             this.btnRunStep.UseVisualStyleBackColor = true;
@@ -264,21 +282,16 @@ namespace RMS
             this.lbOutput.Size = new System.Drawing.Size(417, 472);
             this.lbOutput.TabIndex = 0;
             // 
-            // label4
+            // btnLoadSample
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(376, 464);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Rozmiar taśmy:";
-            // 
-            // txtSize
-            // 
-            this.txtSize.Location = new System.Drawing.Point(457, 461);
-            this.txtSize.Name = "txtSize";
-            this.txtSize.Size = new System.Drawing.Size(56, 20);
-            this.txtSize.TabIndex = 15;
+            this.btnLoadSample.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadSample.Location = new System.Drawing.Point(9, 490);
+            this.btnLoadSample.Name = "btnLoadSample";
+            this.btnLoadSample.Size = new System.Drawing.Size(63, 23);
+            this.btnLoadSample.TabIndex = 4;
+            this.btnLoadSample.Text = "Domyślna";
+            this.btnLoadSample.UseVisualStyleBackColor = true;
+            this.btnLoadSample.Click += new System.EventHandler(this.btnLoadSample_Click);
             // 
             // Display
             // 
@@ -318,6 +331,7 @@ namespace RMS
         private ComboBox cbCommand;
         private TextBox txtSize;
         private Label label4;
+        private Button btnLoadSample;
 
     }
 }

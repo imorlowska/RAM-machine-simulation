@@ -76,7 +76,7 @@ namespace RMS.Framework
             machine.AddInstruction(i0);
 
             Instruction i1 = new AssignValueInstruction();
-            i1.SetParameters(new List<int> { 1, 4 }); //M4 = 1
+            i1.SetParameters(new List<int> { 4, 1 }); //M4 = 1
             machine.AddInstruction(i1);
 
             Instruction i2 = new GotoIfInstruction();
@@ -99,7 +99,7 @@ namespace RMS.Framework
             machine.AddInstruction(i6);
 
             Instruction i7 = new GotoIfInstruction();
-            i7.SetParameters(new List<int> { 2, 4 }); // goto 2
+            i7.SetParameters(new List<int> { 2, 4 }); // goto 2 if M4 > 0
             machine.AddInstruction(i7);
 
             int[] input = { 5, 6 };
