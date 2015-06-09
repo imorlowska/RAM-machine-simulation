@@ -11,7 +11,7 @@ namespace RMS.Framework.Instructions
 
         public int Line { get; set; }
 
-        protected List<int> Parameters { get; set; }
+        public List<int> Parameters { get; protected set; }
 
         public abstract int Run(int[] tape);
 

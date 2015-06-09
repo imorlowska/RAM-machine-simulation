@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 using RMS.Framework;
+using RMS.Framework.Instructions;
 
 namespace RMS
 {
@@ -182,6 +183,64 @@ namespace RMS
         private void btnLoadSample_Click(object sender, EventArgs e)
         {
             _currentMachine = Machine.GetSampleMachine();
+            txtSize.Text = "6";
+            lbCommands.Items.Clear();
+            int position = 0;
+            lbCommands.Items.AddRange(_currentMachine.GetInstructionsList().Select( i=> (object)TranslateInstruction(i, position++)).ToArray());
+        }
+
+        private Command TranslateInstruction(Instruction instruction, int position)
+        {
+            var cmd = new Command() {Position = position};
+            var type = instruction.GetType();
+            if (type == typeof (AddInstruction))
+            {
+                cmd.Type = CommandType.Add;
+                cmd.Arg1 = instruction.Parameters[0];
+                cmd.Arg2 = instruction.Parameters[1];
+                cmd.Arg3 = instruction.Parameters[2];
+            }
+            else if (type == typeof(AssignValueInstruction))
+            {
+                cmd.Type = CommandType.AssignValue;
+                cmd.Arg1 = instruction.Parameters[0];
+                cmd.Arg2 = instruction.Parameters[1];
+            }
+            else if (type == typeof(CopyValueInstruction))
+            {
+                cmd.Type = CommandType.CopyValue;
+                cmd.Arg1 = instruction.Parameters[0];
+                cmd.Arg2 = instruction.Parameters[1];
+            }
+            else if (type == typeof(CopyValue2Instruction))
+            {
+                cmd.Type = CommandType.CopyValue2;
+                cmd.Arg1 = instruction.Parameters[0];
+                cmd.Arg2 = instruction.Parameters[1];
+            }
+            else if (type == typeof(DivideByTwoInstruction))
+            {
+                cmd.Type = CommandType.Divide;
+                cmd.Arg1 = instruction.Parameters[0];
+            }
+            else if (type == typeof(GotoIfInstruction))
+            {
+                cmd.Type = CommandType.GotoIf;
+                cmd.Arg1 = instruction.Parameters[0];
+                cmd.Arg2 = instruction.Parameters[1];
+            }
+            else if (type == typeof(SubstractInstruction))
+            {
+                cmd.Type = CommandType.Substract;
+                cmd.Arg1 = instruction.Parameters[0];
+                cmd.Arg2 = instruction.Parameters[1];
+                cmd.Arg3 = instruction.Parameters[2];
+            }
+            else if (type == typeof(HaltInstruction))
+            {
+                cmd.Type = CommandType.Halt;
+            }
+            return cmd;
         }
     }
 }

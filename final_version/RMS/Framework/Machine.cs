@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using RMS.Framework.Instructions;
 
@@ -24,6 +25,11 @@ namespace RMS.Framework
             if (i == null) return;
             i.Line = _instructions.Count;
             _instructions.Add(i);
+        }
+
+        internal List<Instruction> GetInstructionsList()
+        {
+            return _instructions;
         }
 
         public void InsertInput(int[] input)
@@ -71,6 +77,14 @@ namespace RMS.Framework
         {
             var machine = new Machine(6);
 
+            Instruction ix = new AssignValueInstruction();
+            ix.SetParameters(new List<int>{ 0, 5 });
+            machine.AddInstruction(ix);
+
+            Instruction iy = new AssignValueInstruction();
+            iy.SetParameters(new List<int> { 1, 6 });
+            machine.AddInstruction(iy);
+
             Instruction i0 = new AddInstruction();
             i0.SetParameters(new List<int> { 2, 3, 0 }); // M2 = 0 + M0
             machine.AddInstruction(i0);
@@ -80,7 +94,7 @@ namespace RMS.Framework
             machine.AddInstruction(i1);
 
             Instruction i2 = new GotoIfInstruction();
-            i2.SetParameters(new List<int> { 5, 2 }); // goto 5 if M2 > 0
+            i2.SetParameters(new List<int> { 7, 2 }); // goto 7 if M2 > 0
             machine.AddInstruction(i2);
 
             Instruction i3 = new AddInstruction();
@@ -99,11 +113,8 @@ namespace RMS.Framework
             machine.AddInstruction(i6);
 
             Instruction i7 = new GotoIfInstruction();
-            i7.SetParameters(new List<int> { 2, 4 }); // goto 2 if M4 > 0
+            i7.SetParameters(new List<int> { 4, 4 }); // goto 4 if M4 > 0
             machine.AddInstruction(i7);
-
-            int[] input = { 5, 6 };
-            machine.InsertInput(input);
 
             // when machine halts result will be in M0
             return machine;
